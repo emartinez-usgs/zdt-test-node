@@ -1,0 +1,19 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "Testing graceful node shutdowns",
+  "repository": {"type": "git", "url": "."},
+  "scripts": {
+    "build": "docker build -t local/graceful:node .",
+    "clean": "docker image rm graceful-node",
+    "start": "docker stack deploy -c graceful-node.yml graceful-node",
+    "stop": "docker stack rm graceful-node"
+  },
+  "author": "Eric Martinez<emartinez@usgs.gov>",
+  "license": "MIT",
+  "dependencies": {
+    "@godaddy/terminus": "^2.4.1",
+    "express": "^4.16.3",
+    "http": "0.0.0"
+  }
+}

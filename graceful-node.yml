@@ -1,0 +1,16 @@
+version: '3.7'
+services:
+  web:
+    image: local/graceful:node
+    deploy:
+      restart_policy:
+        condition: any
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      replicas: 3
+    ports:
+      - 8000:8000
+    environment:
+      - PORT=8000
+      - VERSION=1
